@@ -83,10 +83,10 @@ context("facebook", () => {
               }
             });
         });
-      // if (index % 20 === 0) {
-      cy.writeFile("posts/posts.json", posts);
-      cy.exec("surge posts fb-dirot-posts-1745139jxd3ur.surge.sh");
-      // }
+      if (index % 20 === 0) {
+        cy.writeFile("posts/posts.json", posts);
+        cy.exec("surge posts fb-dirot-posts-1745139jxd3ur.surge.sh");
+      }
     });
   });
 });
