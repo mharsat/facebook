@@ -61,10 +61,17 @@ context("facebook", () => {
             .invoke("text")
             .then((time) => {
               if (
-                text.includes("דירה") ||
-                text.includes("דירת") ||
-                text.includes("חדר") ||
-                text.includes("room")
+                (text.includes("דירה") ||
+                  text.includes("דירת") ||
+                  text.includes("חדר") ||
+                  text.includes("room")) &&
+                (time.includes("August") ||
+                  time.includes("September") ||
+                  time.endsWith("d") ||
+                  time.endsWith("h") ||
+                  time.endsWith("m") ||
+                  time.endsWith("s")) &&
+                !time.includes(",")
               ) {
                 posts[member] = {
                   time,
@@ -76,7 +83,10 @@ context("facebook", () => {
               }
             });
         });
-      cy.writeFile("posts.json", posts);
+      if (index % 20 === 0) {
+        cy.writeFile("posts/posts.json", posts);
+        cy.exec("surge posts fb-dirot-posts-1745139jxd3ur.surge.sh");
+      }
     });
   });
 });
