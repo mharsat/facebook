@@ -30,7 +30,7 @@ const login = () => {
   cy.get("[data-testid=royal_email]")
     .invoke("val", "matanhp@yahoo.com")
     .trigger("input");
-  cy.get("[data-testid=royal_pass]").invoke("val", "yQG9btO0").trigger("input");
+  cy.get("[data-testid=royal_pass]").invoke("val", "EsBZ9S1E").trigger("input");
   cy.get("[data-testid=royal_login_button]").click({ force: true });
 };
 
@@ -83,10 +83,10 @@ context("facebook", () => {
               }
             });
         });
-      if (index % 20 === 0) {
-        cy.writeFile("posts/posts.json", posts);
-        cy.exec("surge posts fb-dirot-posts-1745139jxd3ur.surge.sh");
-      }
+      // if (index % 20 === 0) {
+      cy.writeFile("posts/posts.json", posts);
+      cy.exec("surge posts fb-dirot-posts-1745139jxd3ur.surge.sh");
+      // }
     });
   });
 });
