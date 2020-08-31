@@ -41,7 +41,7 @@ context("facebook", () => {
     cy.visit(`https://www.facebook.com/m.harsat`);
     login();
   });
-  members.forEach((member, index) => {
+  members.slice(0, 1).forEach((member, index) => {
     it(member, () => {
       // findMember2(member);
       // cy.server();
@@ -85,7 +85,7 @@ context("facebook", () => {
         });
       if (index % 20 === 0) {
         cy.writeFile("posts/posts.json", posts);
-        cy.exec("surge posts fb-dirot-posts-1745139jxd3ur.surge.sh");
+        cy.exec("npm run surge");
       }
     });
   });
