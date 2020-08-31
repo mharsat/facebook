@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://www.facebook.com",
+  "viewportHeight": 1500,
+  "defaultCommandTimeout": 300000,
+  "video": false
+}
